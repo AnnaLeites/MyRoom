@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="aframe-gaussian-splatting-component.min.js"></script>
+  </head>
+  <body>
+    <a-scene renderer="antialias: false;" stats>
+      <a-entity position="0 1.6 -2.0" animation="property: rotation; to: 0 360 0; dur: 10000; easing: linear; loop: true">
+        <a-sphere position="0 0 0.5" radius="0.5" color="#EF2D5E"></a-sphere>
+        <a-sphere position="0 0 -0.5" radius="0.5" color="#EF2D5E"></a-sphere>
+      </a-entity>
+      <a-entity camera position="-3.68 1.6 0.99" rotation="-2.4 -15.58 0" wasd-controls look-controls ></a-entity>
+      
+      <a-entity gaussian_splatting="src: output/point_cloud/iteration_30000/point_cloud.splat;depthWrite:true;discardFilter:0.1" rotation="0 0 0" position="0 1.5 -2">
+        <a-entity gaussian_splatting="src: https://huggingface.co/quadjr/aframe-gaussian-splatting/resolve/main/luma-seal.splat;depthWrite:true;discardFilter:0.3"  rotation="0 0 0" position="-3.3 -0.33 -1.7"></a-entity>
+      </a-entity>
+       <a-sky color="#000"></a-sky>
+    </a-scene>
+  </body>
+</html>
